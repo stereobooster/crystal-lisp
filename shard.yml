@@ -1,0 +1,18 @@
+name: mal-crystal
+version: 0.1.0
+
+# authors:
+#   - name <email@example.com>
+
+# description: |
+#   Short description of vscode-remote-development-template
+
+# license: MIT
+
+dependencies:
+  readline:
+    github: crystal-lang/crystal-readline
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
