@@ -44,7 +44,7 @@ module Mal
       {% for op in ops %}
         def {{op.id}}(other : Mal::Type)
           l, r = @val, other.unwrap
-            {% for t in [Int64, String] %}
+            {% for t in [Int64, Float64, String] %}
               if l.is_a?({{t}}) && r.is_a?({{t}})
                 return (l) {{op.id}} (r)
               end
@@ -98,7 +98,7 @@ module Mal
     end
   end
 
-  alias Type::ValueType = Nil | Bool | Int64 | String | Symbol | List | Vector | HashMap | Func | Closure | Atom
+  alias Type::ValueType = Nil | Bool | Float64 | Int64 | String | Symbol | List | Vector | HashMap | Func | Closure | Atom
   alias Func = Type::Func
 end
 

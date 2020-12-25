@@ -78,6 +78,7 @@ class Reader
 
     Mal::Type.new case
     when token =~ /^-?\d+$/ then token.to_i64
+    when token =~ /^-?\d+\.\d+$/ then token.to_f64
     when token == "true"    then true
     when token == "false"   then false
     when token == "nil"     then nil

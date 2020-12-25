@@ -41,3 +41,5 @@ RUN \
   shards build --verbose --release
 
 RUN cp scry/bin/scry /usr/bin
+
+RUN apt-get install python -y

@@ -69,7 +69,7 @@ module Mal
     eval_error "argument of slurp must be string" unless head.is_a? String
     begin
       File.read head
-    rescue e : Errno
+    rescue e : IO::Error
       eval_error "no such file"
     end
   end
@@ -194,7 +194,7 @@ module Mal
   end
 
   def self.number?(args)
-    args.first.unwrap.is_a?(Int64)
+    args.first.unwrap.is_a?(Float64 | Int64)
   end
 
   def self.fn?(args)
@@ -381,7 +381,7 @@ module Mal
   end
 
   def self.time_ms(args)
-    Time.now.epoch_ms.to_i64
+    Time.local.to_unix_ms
   end
 
   # Note:
@@ -398,7 +398,7 @@ module Mal
     "+"           => calc_op(:+),
     "-"           => calc_op(:-),
     "*"           => calc_op(:*),
-    # "/"           => calc_op(:/),
+    "/"           => calc_op(:/),
     "list"        => func(:list),
     "list?"       => func(:list?),
     "empty?"      => func(:empty?),
@@ -413,7 +413,7 @@ module Mal
     "prn"         => func(:prn),
     "println"     => func(:println),
     "read-string" => func(:read_string),
-    # "slurp"       => func(:slurp),
+    "slurp"       => func(:slurp),
     "cons"        => func(:cons),
     "concat"      => func(:concat),
     "vec"         => func(:vec),
@@ -455,6 +455,6 @@ module Mal
     "swap!"       => func(:swap!),
     "conj"        => func(:conj),
     "seq"         => func(:seq),
-    # "time-ms"     => func(:time_ms),
+    "time-ms"     => func(:time_ms),
   } of String => Mal::Func
 end

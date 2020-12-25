@@ -80,10 +80,10 @@ module Mal
 end
 
 REPL_ENV = {
-  "+" => Mal.num_func(->(x : Int64, y : Int64) { x + y }),
-  "-" => Mal.num_func(->(x : Int64, y : Int64) { x - y }),
-  "*" => Mal.num_func(->(x : Int64, y : Int64) { x * y }),
-  # "/" => Mal.num_func(->(x : Int64, y : Int64) { x / y }),
+  "+" => Mal.num_func(->(x : (Float64 | Int64), y : (Float64 | Int64)) { x + y }),
+  "-" => Mal.num_func(->(x : (Float64 | Int64), y : (Float64 | Int64)) { x - y }),
+  "*" => Mal.num_func(->(x : (Float64 | Int64), y : (Float64 | Int64)) { x * y }),
+  "/" => Mal.num_func(->(x : (Float64 | Int64), y : (Float64 | Int64)) { x / y }),
 } of String => Mal::Func
 
 while line = Readline.readline("user> ", true)

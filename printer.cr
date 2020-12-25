@@ -5,6 +5,7 @@ def pr_str(value, print_readably = true)
   when Nil          then "nil"
   when Bool         then value.to_s
   when Int64        then value.to_s
+  when Float64      then value.to_s
   when Mal::List    then "(#{value.map { |v| pr_str(v, print_readably).as(String) }.join(" ")})"
   when Mal::Vector  then "[#{value.map { |v| pr_str(v, print_readably).as(String) }.join(" ")}]"
   when Mal::Symbol  then value.str.to_s
