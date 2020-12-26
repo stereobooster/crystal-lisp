@@ -12,6 +12,8 @@ version: 0.1.0
 dependencies:
   readline:
     github: crystal-lang/crystal-readline
+  arborist:
+    github: davidkellis/arborist
 
 # development_dependencies:
 #   webmock:

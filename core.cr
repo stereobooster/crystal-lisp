@@ -4,7 +4,7 @@ require "readline"
 require "./types"
 require "./error"
 require "./printer"
-require "./reader"
+require "./peg_reader_mal"
 
 module Mal
   macro calc_op(op)

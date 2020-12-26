@@ -3,7 +3,7 @@
 require "colorize"
 
 require "readline"
-require "./reader"
+require "./peg_reader_mal"
 require "./printer"
 require "./types"
 require "./env"
